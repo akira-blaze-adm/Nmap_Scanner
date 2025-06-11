@@ -114,7 +114,7 @@ def get_scan_type():
 
 def main():
     print("=== Simple Nmap Scanner ===")
-    target = int(input("Enter IP address or host name to scan: ")).strip()
+    target = input("Enter IP address or host name to scan: ").strip()
     if not (is_valid_ip(target) or is_valid_hostname(target)):
         print("Error: Invalid IP address or host name.")
         sys.exit(1)
