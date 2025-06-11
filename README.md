@@ -1,6 +1,6 @@
 # 🔍 Simple Nmap Scanner
 
-A cross-platform Python-based Nmap wrapper with interactive options, auto-install handling, and scan output saving. Ideal for red teamers, students, or sysadmins needing quick recon with minimal setup.
+A cross-platform Python-based Nmap wrapper with interactive options, auto-install handling, and scan output saving. Ideal for anyone needing quick recon with minimal setup.
 
 ---
 
