@@ -143,15 +143,31 @@ def main():
         print(f"Unexpected error: {e}")
         sys.exit(1)
 
-    save = input("Do you want to save the output to a .txt file? (y/n): ").strip().lower()
-    if save == 'y':
-        filename = input("Enter filename (without extension): ").strip() + ".txt"
-        try:
-            with open(filename, "w", encoding="utf-8") as f:
-                f.write(output)
-            print(f"[*] Output saved to {filename}")
-        except Exception as e:
-            print(f"Error saving file: {e}")
+     save = input("Do you want to save the output to a file? (y/n): ").strip().lower()
+        if save == 'y':
+            format_choice = input("Choose file format - txt or json: ").strip().lower()
+            filename = input("Enter filename (without extension): ").strip()
+            if format_choice == "json":
+                json_filename = filename + ".json"
+                try:
+                    result = {
+                        "target": target,
+                        "scan_type": scan_type,
+                        "output": output
+                    }
+                    with open(json_filename, "w", encoding="utf-8") as f:
+                        json.dump(result, f, indent=2)
+                    print(f"[*] Output saved to {json_filename}")
+                except Exception as e:
+                    print(f"Error saving file: {e}")
+            else:
+                txt_filename = filename + ".txt"
+                try:
+                    with open(txt_filename, "w", encoding="utf-8") as f:
+                        f.write(output)
+                    print(f"[*] Output saved to {txt_filename}")
+                except Exception as e:
+                    print(f"Error saving file: {e}")
 
 if __name__ == "__main__":
     try:
